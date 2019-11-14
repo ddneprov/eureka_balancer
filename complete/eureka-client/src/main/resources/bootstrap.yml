@@ -1,0 +1,87 @@
+server:
+  port: 0
+spring:
+  application:
+    name: a-bootiful-client
+  redis:
+    host: localhost
+    port: 0
+  jackson:
+    default-property-inclusion: non_null
+eureka:
+  instance:
+    appname: a-bootiful-client
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+#  dashboard:
+#    path: /eureka-dashboard
+#swagger:
+#  enabled: true
+#  url: localhost:8761
+#  exclusions:
+#    - configserver
+#    - gateway
+#    - file-storage-service
+#    - dictionary-service
+#zuul:
+#  prefix: /api
+#  routes:
+#    admin-panel-service:
+#      path: /admin-panel-service/**
+#      serviceId: admin-panel-service
+#    gateway:
+#      path: /gateway/**
+#      serviceId: gateway
+#      sensitiveHeaders:
+#    client-service:
+#      path: /client-service/**
+#      serviceId: client-service
+#      sensitiveHeaders:
+#    dictionary-service:
+#      path: /dictionary-service/**
+#      serviceId: dictionary-service
+#      sensitiveHeaders:
+#    tariff-service:
+#      path: /tariff-service/**
+#      serviceId: tariff-service
+#      sensitiveHeaders:
+#    user-detail-service:
+#      path: /user-service/additional_number/**
+#      serviceId: user-detail-service
+#      sensitiveHeaders:
+#    feedback-service:
+#      path: /feedback-service/**
+#      serviceId: feedback-service
+#      sensitiveHeaders:
+#    payment-service:
+#      path: /payment-service/**
+#      serviceId: payment-service
+#      sensitiveHeaders:
+#    settings-service:
+#      path: /settings-service/**
+#      serviceId: settings-service
+#      sensitiveHeaders:
+#    file-storage-service:
+#      path: /file-storage-service/**
+#      serviceId: file-storage-service
+#      sensitiveHeaders:
+#gateway:
+#  minversionapi: 1.1.2
+#  session:
+#    expiredHours: 3
+#  unsecureurl: /api/gateway/login, /api/gateway/send_password, /api/user-detail-service/send_password, /api/user-detail-service/login, /api/user-detail-service/number/info, /api/file-storage-service/config
+#  cors: http://localhost:8761, http://localhost:3000, http://10.77.35.171
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 31000
+#
+#ribbon:
+#  ReadTimeout: 30000
+#  ConnectTimeout: 30000
