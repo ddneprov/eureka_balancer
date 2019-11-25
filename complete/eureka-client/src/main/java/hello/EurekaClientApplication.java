@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Scanner;
 
-
+import hello.GFG;
 
 @EnableDiscoveryClient
 @SpringBootApplication
@@ -27,22 +27,27 @@ class ServiceInstanceRestController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    private static Integer task() {
-        System.out.println(" ============  ВВЕДИ ДАННЫЕ ============= ");
+    private static String task() {
+        System.out.println(" ============ ВВЕДИ ДАННЫЕ ============= \n");
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt() + scanner.nextInt();
+        return GFG.encryptThisString(scanner.next());
     }
 
-    @RequestMapping(value= "/check", method = RequestMethod.GET)
+    @RequestMapping(value = "/check", method = RequestMethod.GET)
     @ResponseBody
-    public Integer getMyData(/*@PathVariable long time*/) {
-        int result = task();
+    public String getMyData(/*@PathVariable long time*/) {
+        String result = task();
         return result;
     }
 
-    //http://10.8.77.22:8889/test
-    @GetMapping(value = "/test")
+//http://10.8.77.22:8889/test
+    @GetMapping (value = "/test")
     public String test() {
         return " test 2.0";
+    }
+
+    @GetMapping (value = "/")
+    public String test3() {
+        return " test 3.0";
     }
 }
