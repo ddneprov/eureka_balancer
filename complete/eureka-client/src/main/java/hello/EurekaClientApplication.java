@@ -31,20 +31,15 @@ class ServiceInstanceRestController {
     private DiscoveryClient discoveryClient;
 
     private static BigInteger task() {
-
-        int number = 80000;
         BigInteger res = BigInteger.valueOf(1);
-        for (int i = 2; i <= number; i++){
+        for (int i = 2; i <= 80000; i++)
             res = res.multiply(BigInteger.valueOf(i));
-        }
-
         return res;
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.GET)
     @ResponseBody
     public BigInteger getMyData() {
-
         BigInteger result = task();
         return result;
     }
