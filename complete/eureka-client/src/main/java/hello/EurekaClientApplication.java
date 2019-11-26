@@ -8,7 +8,10 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
+import java.nio.charset.Charset;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 import hello.GFG;
@@ -27,16 +30,29 @@ class ServiceInstanceRestController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    private static String task() {
-        System.out.println(" ============ ВВЕДИ ДАННЫЕ ============= \n");
-        Scanner scanner = new Scanner(System.in);
-        return GFG.encryptThisString(scanner.next());
+    private static BigInteger task() {
+
+        int number = 80000;
+        BigInteger res = BigInteger.valueOf(1);
+        for (int i = 2; i <= number; i++){
+            res = res.multiply(BigInteger.valueOf(i));
+        }
+
+        return res;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/check", method = RequestMethod.GET)
     @ResponseBody
-    public String getMyData() {
-        String result = task();
+    public BigInteger getMyData() {
+
+        BigInteger result = task();
         return result;
+    }
+
+
+    @RequestMapping(value = "/actuator/info", method = RequestMethod.GET)
+    @ResponseBody
+    public String handler() {
+        return "info";
     }
 }
