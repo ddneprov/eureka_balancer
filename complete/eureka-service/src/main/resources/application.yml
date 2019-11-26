@@ -1,0 +1,9 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    appname: a-bootiful-client
+  client:
+    register-with-eureka: false
+    fetch-registry: false

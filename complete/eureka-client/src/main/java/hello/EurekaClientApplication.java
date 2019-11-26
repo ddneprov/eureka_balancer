@@ -33,21 +33,10 @@ class ServiceInstanceRestController {
         return GFG.encryptThisString(scanner.next());
     }
 
-    @RequestMapping(value = "/check", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
-    public String getMyData(/*@PathVariable long time*/) {
+    public String getMyData() {
         String result = task();
         return result;
-    }
-
-//http://10.8.77.22:8889/test
-    @GetMapping (value = "/test")
-    public String test() {
-        return " test 2.0";
-    }
-
-    @GetMapping (value = "/")
-    public String test3() {
-        return " test 3.0";
     }
 }
